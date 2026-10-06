@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.env
+
+# C++
+build/
+*.exe
+*.obj
+*.o
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
