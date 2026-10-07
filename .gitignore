@@ -17,3 +17,18 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Build files
+CMakeFiles/
+
+# Dataset
+data/
+
+# Large model files
+models/
+
+# Runtime DLL
+cpp/onnxruntime.dll
+
+# Local test image
+test_image.jpg
