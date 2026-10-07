@@ -232,6 +232,10 @@ Predicted Class : 12
 Confidence      : 100%
 Inference Time  : 3.8592 ms
 ==============================
+
+## Project Demo
+
+![Traffic Sign Classification C++ Demo](screenshots/project_demo.png)
 Project Structure
 ML-Model-Deployment-CPP/
 |
