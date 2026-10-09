@@ -288,6 +288,8 @@ PyTorch
 Torchvision
 ONNX
 ONNX Runtime Python package
+```text
+```
 ## How to Run
 
 ### Prerequisites
@@ -389,7 +391,7 @@ From the project root, run:
 
 The program displays the predicted class, traffic-sign name, confidence score, and inference time.
 
-Testing
+## Testing
 
 The project includes tests for:
 
@@ -439,15 +441,13 @@ Intelligent transportation systems
 Road safety applications
 Smart vehicle systems
 Traffic monitoring systems
-Author
+
+## Author
 
 Siddhi Zire
 
 B.Tech Computer Science and Engineering – Artificial Intelligence
 
-License
+## License
 
 This project is created for educational, learning and portfolio purposes.
-
-
-**That's the only thing you need to paste.** Don't paste the ```markdown at the very beginning or the ``` at the very end if you're copying manually—they are just showing you where the block starts and ends.
