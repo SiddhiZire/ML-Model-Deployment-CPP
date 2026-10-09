@@ -7,6 +7,53 @@
 #include <algorithm>
 #include <cmath>
 
+
+const char* traffic_sign_names[43] = {
+    "Speed limit 20 km/h",
+    "Speed limit 30 km/h",
+    "Speed limit 50 km/h",
+    "Speed limit 60 km/h",
+    "Speed limit 70 km/h",
+    "Speed limit 80 km/h",
+    "End of speed limit 80 km/h",
+    "Speed limit 100 km/h",
+    "Speed limit 120 km/h",
+    "No passing",
+    "No passing for vehicles over 3.5 tons",
+    "Right-of-way at next intersection",
+    "Priority road",
+    "Yield",
+    "Stop",
+    "No vehicles",
+    "Vehicles over 3.5 tons prohibited",
+    "No entry",
+    "General caution",
+    "Dangerous curve to the left",
+    "Dangerous curve to the right",
+    "Double curve",
+    "Bumpy road",
+    "Slippery road",
+    "Road narrows on the right",
+    "Road work",
+    "Traffic signals",
+    "Pedestrians",
+    "Children crossing",
+    "Bicycles crossing",
+    "Beware of ice/snow",
+    "Wild animals crossing",
+    "End of all speed and passing limits",
+    "Turn right ahead",
+    "Turn left ahead",
+    "Ahead only",
+    "Go straight or right",
+    "Go straight or left",
+    "Keep right",
+    "Keep left",
+    "Roundabout mandatory",
+    "End of no passing",
+    "End of no passing for vehicles over 3.5 tons"
+};
+
 int main()
 {
     // ============================================================
@@ -278,9 +325,14 @@ int main()
     std::cout << "=============================="
               << std::endl;
 
+    
     std::cout << "Predicted Class : "
-              << predicted_class
-              << std::endl;
+          << predicted_class
+          << std::endl;
+
+    std::cout << "Traffic Sign    : "
+          << traffic_sign_names[predicted_class]
+          << std::endl;
 
     std::cout << "Confidence      : "
               << confidence * 100
