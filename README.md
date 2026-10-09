@@ -288,28 +288,107 @@ PyTorch
 Torchvision
 ONNX
 ONNX Runtime Python package
-How to Run
-1. Train the Model
+## How to Run
+
+### Prerequisites
+
+Before running the project, install and configure:
+
+* Python 3.11 or a compatible Python version
+* Git
+* MSYS2 UCRT64 with GCC/G++
+* OpenCV
+* ONNX Runtime C++ library
+
+The C++ compilation commands below assume that OpenCV and ONNX Runtime are installed in the MSYS2 UCRT64 environment.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/SiddhiZire/ML-Model-Deployment-CPP.git
+cd ML-Model-Deployment-CPP
+```
+
+### 2. Set Up the Python Environment
+
+Create and activate a virtual environment in PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the Python dependencies:
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r python/requirements.txt
+pip install onnxscript
+```
+
+### 3. Train the Model
+
+```powershell
 python python/train.py
+```
 
-This trains the CNN model and saves:
+This downloads the GTSRB dataset if necessary, trains the CNN model, evaluates its test accuracy, and saves the trained model to:
 
-models/traffic_sign_cnn.pth
-2. Export the Model to ONNX
+`models/traffic_sign_cnn.pth`
+
+Ensure the `models` directory exists before saving the model.
+
+### 4. Export the Model to ONNX
+
+```powershell
 python python/export_model.py
+```
 
-This creates:
+This exports the trained model to:
 
-models/traffic_sign_cnn.onnx
-3. Test the ONNX Model
+`models/traffic_sign_cnn.onnx`
+
+### 5. Test the ONNX Model
+
+```powershell
 python python/test_onnx.py
-4. Add a Test Image
+```
 
-Place a traffic sign image in the project root:
+This checks whether the ONNX model loads and performs inference successfully.
 
-test_image.jpg
-5. Run the C++ Classifier
+### 6. Add a Test Image
+
+Place a traffic-sign image in the project root and name it:
+
+`test_image.jpg`
+
+The image must be readable by OpenCV.
+
+### 7. Compile the C++ Classifier
+
+Open the MSYS2 UCRT64 terminal in the project root and run:
+
+```bash
+g++ cpp/main.cpp -o cpp/traffic_sign_classifier.exe \
+-I/ucrt64/include/opencv4 \
+-I/ucrt64/include/onnxruntime \
+-L/ucrt64/lib \
+-lonnxruntime \
+$(pkg-config --cflags --libs opencv4)
+```
+
+Make sure the required ONNX Runtime DLL is available at runtime. The executable may need the correct DLL in its runtime search path.
+
+### 8. Run the C++ Classifier
+
+From the project root, run:
+
+```bash
 ./cpp/traffic_sign_classifier.exe
+```
+
+The program displays the predicted class, traffic-sign name, confidence score, and inference time.
+
 Testing
 
 The project includes tests for:
